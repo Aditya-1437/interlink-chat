@@ -18,9 +18,15 @@ const Login = () => {
         }
     }
 
+    const handelRegister = e => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const {username,email,password} = Object.fromEntries(formData);
+        console.log(username)
+    }
+
     const handelLogin = e => {
         e.preventDefault();
-        toast.warn("hello")
     }
 
   return (
@@ -36,7 +42,7 @@ const Login = () => {
         <div className="separator"></div>
         <div className="item">
             <h2>New to Inter-Link?</h2>
-            <form>
+            <form onSubmit={handelRegister}>
                 <label htmlFor="file">
                     <img src={avatar.url || "./avatar.png"} alt="" />
                     Upload profile pic</label>
